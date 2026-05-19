@@ -1,0 +1,46 @@
+# Portafolio521Jeff
+
+actividad#1
+Análisis de Casos
+
+1. Sip, la idea del rector es correcta, pero no precisa técnicamente. Porque cuando menciona el de ponerlo en línea pero, prácticamente el equipo de IT tiene decidir si será una aplicación web publica o privada, porque no todo lo que usa internet queda abierto para cualquiera de manera publica
+
+2. deberían de usar internet y la web, usan internet porque necesitan una red para conectar usuarios y servidores. también usan la web si el sistema se accede desde un navegador mediante HTTP o HTTPS. Pero solo pueden entrar usuarios internos de la UTN, no seria una web publica, sino un sistema privado o institucional 
+
+3. Los dos organismos importantes, pero en áreas distintas. La IETF define protocolos de comunicación como HTTP, HTTPS y TCP que permiten que el sistema funcione en red la W3C define estándares  relacionados con la estructura y presentación de pagina web, como HTML, CSS y accesibilidad. Pero eso para un sistema de notas en línea ambos son relevantes: IETF para la comunicación y W3C par web visible al usuario
+
+
+Actividad#2
+Toma de Decisión Técnica 
+1 A internet B intranet y  C extranet en ese orden
+
+A:Es un sitio de información pública, por lo tanto debe estar disponible para cualquier vecino desde la red pública.
+B:Es un sistema interno de RRHH, así que solo debe ser accesible para funcionarios autorizados dentro de la municipalidad. 	
+C:Es un portal para empresas externas, pero con acceso controlado. No es totalmente público ni totalmente interno.
+
+C necesita buena seguridad, porque permite acceso a empresas externas y podría exponer permisos o trámites oficiales.
+
+Si se puede pero se tendría que usar una red segmentada y maquinas virtuales, firewall.
+
+actividad#3
+Disección y Diseño de URLs
+
+Protocolo: https
+Dominio/servidor:api.github.com
+Puerto:443
+Ruta:/repos/bryancs/isw521/issues
+Propietario del repositorio:bryancs
+Repositorio:isw521
+Recurso consultado:issues
+Parámetros: state=open&labels=semana1
+Filtro de estado:state=open
+Filtro de etiqueta:labels=semana1
+Fragmento: #comentarios 
+
+Clean URL
+
+https://utn.ac.cr/cursos/isw-521/2026-ii/san-carlos
+
+https://utn.ac.cr/estudiantes/2022-0001
+
+https://utn.ac.cr/cursos/isw-521/materiales/semana-3
