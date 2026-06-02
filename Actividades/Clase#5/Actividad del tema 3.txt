@@ -1,0 +1,30 @@
+Actividad del tema 3:
+spam es en linea, no es semántico y se usa para cambiar el color o estilo a una palabra 
+
+blockquote es bloque, es semántico y se usa para citar una frase larga de una autor 
+
+strong es en linea, es semántico y se usa para marcar texto importante "entrega final tal dia"
+
+article es un bloque es semántico HTML5 y se usa para una noticia, post tarjeta de producto o publicación independiente 
+
+b es en linea, presentación visual y se usa para poner una palabra en negrita
+
+time en linea, semántico HTML5 y sirve para fechas o horas 
+
+ul bloque semnatico y sirve par listas sin orden: como un menú 
+
+mark en linea semántico y sirve para resaltar un palabra clave como encontrada en una búsqueda
+
+code en linea semántico y sirve para mostrar un código roto
+
+section bloque semántico HTML5 y sirve para agrupar una parte de una pagina servicios contacto y sobre nosotros por ejemplo 
+
+
+Actividad tema 6 multimedia:
+
+¿Qué atributos del sandbox de iframe necesitas para que el mapa de Google funcione
+
+el mapa necesita allow.scipts para ejecutar js que renderiza correctamente el mapa allow same origin para que pueda acceder a las cookies y sesión de Google sin esto el mapa cargaría en blanco y sin el allow scripts no cargaría del todo 
+
+¿Por qué el video tiene 2 etiquetas?
+source y no solo un src en el video porque no todos los navegadores

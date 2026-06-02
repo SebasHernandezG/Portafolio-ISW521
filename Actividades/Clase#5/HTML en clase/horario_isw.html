@@ -1,0 +1,134 @@
+<!-- Primer Html creado en clase de ISW521 -->
+<thead>
+  <tr>
+    <th>Hora</th>
+    <th>Lunes</th>
+    <th>Martes</th>
+    <th>Miércoles</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td class="td-hora">7:00</td>
+    <td class="td-curso">ISW-521</td>
+  </tr>
+  <tr>
+    <td class="td-hora">9:00</td>
+    <td class="td-receso" colspan="3">Receso</td>
+  </tr>
+</tbody>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horario ISW</title>
+  <!-- esto no deberia estar aqui -->
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+      background-color: #1a2d55;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .contenedor {
+      background-color: #1e3a6e;
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 400px;
+      font-size: 14px;
+    }
+
+    thead th {
+      background-color: #2d6abf;
+      color: #ffffff;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    tbody td {
+      padding: 12px 16px;
+      border: 1px solid #3a5a9a;
+      color: #ffffff;
+    }
+
+    tbody tr:nth-child(odd) td {
+      background-color: rgba(45, 106, 191, 0.2);
+    }
+
+    tbody tr:nth-child(even) td {
+      background-color: rgba(30, 58, 110, 0.4);
+    }
+
+    .td-hora {
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .td-curso {
+      color: #7dd3fc;
+    }
+
+    .td-libre {
+      color: #a0aec0;
+    }
+
+    .td-receso {
+      color: #f0c040;
+      font-weight: bold;
+      text-align: center;
+      background-color: #1a2e55 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Horario de Clases — ISW</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-hora">7:00</td>
+          <td class="td-curso">ISW-521</td>
+          <td class="td-curso">ISW-311</td>
+          <td class="td-libre">Libre</td>
+        </tr>
+        <tr>
+          <td class="td-hora">9:00</td>
+          <td class="td-receso" colspan="3">Receso</td>
+        </tr>
+        <tr>
+          <td class="td-hora">10:00</td>
+          <td class="td-curso">ISW-421</td>
+          <td class="td-curso">ISW-521</td>
+          <td class="td-curso">ISW-311</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

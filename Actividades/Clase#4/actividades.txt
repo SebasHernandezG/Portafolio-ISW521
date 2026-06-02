@@ -1,0 +1,127 @@
+Ativida#1
+
+
+
+bien
+
+fix: fixes login error
+
+chore: updates weekly changes
+
+feat: adds new functionality for client
+
+chore: remove node_modules from version control
+chore: remove environment file from repository
+
+mal
+
+arreglo del login
+cambios de bryan esta semana
+feature nueva para el cliente
+
+Pregunta2:
+
+fe1b3a5  node_modules/express/index.js
+
+e5d2198  .env
+
+¿Porque? 
+
+node_modules no deberia subirse porque es una carpeta generada por las dependencias  esto hace el repo mas pesado y es innecesario
+
+Luego tenemos el .env esto es peor porque puede llegar a contener claves,contraseñas y tokens tambien usuarios de la bd o confis sensibles
+
+Primero se debio configurar el gitignore para evitar llevarse el nodemodule, env y los logs 
+
+el git debio quedar: nodemodule/.env/*.log
+
+Pregunta3:
+
+un archivo recién creado sin el git add está en Untracked
+
+Ahora bien uno con git add pero sin el commit se encuentra en estado staged esto significa que esta esperando el próximo commit 
+
+Ativida#2
+
+Pregunta1:
+
+Se usaría git fetch origin esto porque el fetch no mezcla los cambios con la rama actual en la que estes trabajando a diferencia que el git  pull porque automaticamente gace un fetch + merge
+
+Pregunta2:
+
+Lo comando para integrarlo de manera limpia y lineal serian:
+
+git status
+
+git fetch origin
+
+git rebase origin/main
+
+si trabajas en el mastel solo cambias el main por master y luego subes un git push origin main
+
+Pregunta3:
+
+Esto significa que en el github hay cambios que aun no tienes en la rama local que estés trabajando y git no deja subir porque podrías sobrescribir el trabajo de tu compañero o equipo.
+
+Flujo correcto:
+
+git fetch origin
+git rebase origin/main
+git push origin main
+
+si hay algún conflicto 
+
+git add .
+
+git rebase --continue
+
+git push origin main
+
+con force:
+
+git add .
+
+git rebase --continue
+
+git push --force-with-lease origin main  y se usa solo en ramas personales porque si es en equipo pasa que borras el trabajo del compañero o equipo
+
+Ativida#3
+
+Pregunta1: 
+¿Qué tipo de merge ocurrirá al integrar `feature/user-profile` en `main`?
+Seria un 3-way merge, no un fast-forward
+
+Justificación Para que ocurra un fast-foward main tendria que ser un ancestro directo del propio feature/user.profile es decir no tener commits propios despues del punto de divergencias  ya que git necesita crear un commit merge que una los dos arboles.
+
+es decir no le han hecho commits como tal 
+
+Pregunta2:
+
+para revisar los cambios se realizarían la siguiente listas de comandos 
+
+```bash
+# 1. Traer cambios remotos sin hacer merge
+git fetch origin
+
+# 2. Ver commits de la rama remota
+git log origin/feature/dark-mode --oneline
+
+# 3. Ver diferencias entre main y la rama del compañero
+git diff main origin/feature/dark-mode
+
+# 4. Ver qué archivos cambiaron (resumen)
+git diff --stat main origin/feature/dark-mode
+
+# 5. Ver detalle de un commit específico
+git show b2f8
+git show d7e3
+
+```
+
+Pregunta3:
+
+Los 4 elementos serian 
+
+**feat: agregar foto de perfil**
+
+Se agregó la opción de subir avatar en /profile (jpg/png, máx. 2MB) usando **multer**. Al subirla, se actualiza también en el navbar. Cierra **#15**; el resize queda pendiente.

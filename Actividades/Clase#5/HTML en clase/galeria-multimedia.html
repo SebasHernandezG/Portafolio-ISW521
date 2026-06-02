@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Recursos Multimedia — Curso en Línea</title>
+</head>
+<body>
+
+  <h1>Galería de Recursos Multimedia</h1>
+  <p>Bienvenido al repositorio multimedia del curso. Aquí encontrarás imágenes, videos, audios y mapas de referencia.</p>
+
+  <hr>
+
+  <!-- 1. Imagen principal con <picture> y 2 fuentes -->
+  <section>
+    <h2>1. Imagen Principal del Curso</h2>
+    <figure>
+      <picture>
+        <source
+          srcset="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200"
+          media="(min-width: 800px)"
+          type="image/jpeg">
+        <source
+          srcset="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600"
+          media="(max-width: 799px)"
+          type="image/jpeg">
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
+          alt="Persona estudiando en línea con una laptop en un escritorio iluminado, representando el aprendizaje digital"
+          width="800"
+          height="450">
+      </picture>
+      <figcaption>Estudiante participando en el curso en línea de Multimedia — Tema 6</figcaption>
+    </figure>
+  </section>
+
+  <hr>
+
+  <!-- 2. Video de la clase con controls, poster y 2 formatos -->
+  <section>
+    <h2>2. Video de la Clase — Tema 6: Multimedia</h2>
+    <figure>
+      <iframe
+        width="800"
+        height="450"
+        src="https://www.youtube.com/embed/m_5-WS9Nd68"
+        title="Clase del Tema 6: Multimedia — Introducción a los elementos HTML de medios"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
+        allowfullscreen>
+        Tu navegador no soporta iframes. Mira el video en
+        <a href="https://youtu.be/m_5-WS9Nd68" target="_blank">YouTube</a>.
+      </iframe>
+      <figcaption>Grabación de la clase del Tema 6: Introducción a los elementos multimedia en HTML5</figcaption>
+    </figure>
+  </section>
+
+  <hr>
+
+  <!-- 3. Audio de podcast con controls y loop desactivado -->
+  <section>
+    <h2>3. Podcast del Curso — Episodio 6</h2>
+    <figure>
+      <p><strong>Título del episodio:</strong> "El poder del multimedia en la web moderna"</p>
+      <p><strong>Duración aproximada:</strong> 32 minutos</p>
+      <audio
+        controls
+        title="Podcast episodio 6: El poder del multimedia en la web moderna">
+        <source
+          src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Beatles_-_Piggies_%28Remastered_2018%29.ogg"
+          type="audio/ogg">
+        <source
+          src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+          type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio HTML5.
+        Descarga el podcast en formato
+        <a href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">MP3</a>.
+      </audio>
+      <figcaption>Podcast complementario al Tema 6 — Sin reproducción en bucle</figcaption>
+    </figure>
+  </section>
+
+  <hr>
+
+  <!-- 4. iframe de Google Maps con sandbox correcto -->
+  <section>
+    <h2>4. Ubicación del Campus Virtual — Google Maps</h2>
+    <figure>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125457.40553385755!2d-84.1800249!3d9.9355168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e343b8f4df4b%3A0xef0da5a25e5e2f0d!2sSan%20Jos%C3%A9%2C%20Costa%20Rica!5e0!3m2!1ses!2scr!4v1680000000000!5m2!1ses!2scr"
+        width="800"
+        height="450"
+        title="Mapa de ubicación del campus: San José, Costa Rica"
+        sandbox="allow-scripts allow-same-origin"
+        referrerpolicy="no-referrer-when-downgrade"
+        loading="lazy">
+        Tu navegador no soporta iframes. Visita
+        <a href="https://maps.google.com" target="_blank">Google Maps</a>
+        directamente.
+      </iframe>
+      <figcaption>Mapa interactivo — Sede principal del curso en San José, Costa Rica</figcaption>
+    </figure>
+  </section>
+
+  <hr>
+
+  <footer>
+    <p><small>Galería Multimedia — Tema 6 | Curso en Línea | Todos los recursos están optimizados para accesibilidad web.</small></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congreso Universitario de Tecnología y Sostenibilidad</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f0f0f0; }
+        .header { background: #003366; color: white; padding: 20px; text-align: center; }
+        .nav { background: #0055a5; padding: 10px; }
+        .nav a { color: white; margin: 0 10px; text-decoration: none; }
+        .main { padding: 20px; }
+        .footer { background: #003366; color: white; padding: 15px; text-align: center; }
+        .card { background: white; border: 1px solid #ccc; padding: 15px; margin: 10px 0; }
+        table { width: 100%; border-collapse: collapse; }
+        td, th { border: 1px solid #ccc; padding: 8px; }
+        th { background: #0055a5; color: white; }
+        input, select, textarea { width: 100%; padding: 8px; margin: 5px 0; box-sizing: border-box; }
+        input[type="checkbox"] { width: auto; margin-right: 6px; }
+        fieldset { border: 1px solid #ccc; margin: 12px 0; padding: 12px; }
+        legend { font-weight: bold; }
+        label { display: block; margin-top: 8px; }
+        .btn { background: #0055a5; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Congreso Universitario de Tecnología y Sostenibilidad</h1>
+        <p>
+            UTN Sede San Carlos ·
+            <time datetime="2025-08-15">15</time>,
+            <time datetime="2025-08-16">16</time> y
+            <time datetime="2025-08-17">17 de agosto de 2025</time>
+        </p>
+        <p>Innovar para un futuro verde y digital</p>
+    </header>
+
+    <nav class="nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#video-promocional">Video</a>
+        <a href="#ponentes">Ponentes</a>
+        <a href="#horario">Horario</a>
+        <a href="#registro">Registro</a>
+        <a href="#ubicacion">Ubicación</a>
+    </nav>
+
+    <main class="main">
+        <section id="inicio" class="card">
+            <h2>Sobre el Congreso</h2>
+            <p>
+                El Congreso Universitario de Tecnología y Sostenibilidad es el evento académico
+                más importante del año en la Sede San Carlos. Reunirá a investigadores, docentes,
+                estudiantes y profesionales del sector tecnológico para discutir los desafíos
+                del desarrollo sostenible en la era digital.
+            </p>
+            <p>
+                Este año el congreso se enfoca en tres ejes temáticos: Inteligencia Artificial Ética,
+                Energías Renovables y Software para el Bien Común.
+            </p>
+        </section>
+
+        <section id="video-promocional" class="card">
+            <h2>Video Promocional</h2>
+            <iframe
+                width="560"
+                height="315"
+                style="border:0; width:100%;"
+                src="https://www.youtube-nocookie.com/embed/DdNt1Ovn3nQ"
+                title="Video promocional del Congreso Universitario de Tecnología y Sostenibilidad"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <p>Video promocional del Congreso Universitario de Tecnología y Sostenibilidad.</p>
+        </section>
+
+        <section id="ponentes" class="card">
+            <h2>Ponentes Destacados</h2>
+
+            <article class="card">
+                <h3>Dra. Laura Rodríguez</h3>
+                <p>Especialista en Inteligencia Artificial Ética - UCR</p>
+                <p>Ponencia: “Sesgos algorítmicos en sistemas de contratación: el caso latinoamericano”.</p>
+            </article>
+
+            <article class="card">
+                <h3>Ing. Carlos Mendoza</h3>
+                <p>Director de Innovación - Instituto Costarricense de Electricidad</p>
+                <p>Ponencia: “Microrredes eléctricas rurales con energía solar: experiencias en zonas alejadas”.</p>
+            </article>
+
+            <article class="card">
+                <h3>MSc. Patricia Vega</h3>
+                <p>Investigadora en Software Libre - TEC</p>
+                <p>Ponencia: “Código abierto como herramienta para la democratización del conocimiento”.</p>
+            </article>
+        </section>
+
+        <section id="horario" class="card">
+            <h2>Horario del Congreso</h2>
+            <table>
+                <caption>Horario general del Congreso Universitario de Tecnología y Sostenibilidad, del 15 al 17 de agosto de 2025</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Viernes 15 Ago</th>
+                        <th scope="col">Sábado 16 Ago</th>
+                        <th scope="col">Domingo 17 Ago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">8:00 - 9:00</th>
+                        <td>Acreditación y bienvenida</td>
+                        <td>Apertura del día</td>
+                        <td>Apertura del día</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9:00 - 10:30</th>
+                        <td>Conferencia magistral: Dra. Rodríguez</td>
+                        <td>Taller de Machine Learning</td>
+                        <td>Panel: Futuro Verde</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10:30 - 11:00</th>
+                        <td>Coffee break</td>
+                        <td>Coffee break</td>
+                        <td>Coffee break</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11:00 - 12:30</th>
+                        <td>Mesa redonda: IA y sociedad</td>
+                        <td>Presentaciones de investigación</td>
+                        <td>Conferencia: Ing. Mendoza</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12:30 - 14:00</th>
+                        <td>Almuerzo</td>
+                        <td>Almuerzo</td>
+                        <td>Almuerzo y clausura</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">14:00 - 15:30</th>
+                        <td>Taller: Energías Renovables</td>
+                        <td>Conferencia: MSc. Vega</td>
+                        <td>Ceremonia de clausura</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">15:30 - 17:00</th>
+                        <td>Exposición de proyectos</td>
+                        <td>Networking y actividades</td>
+                        <td>No aplica</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Total horas</th>
+                        <td><strong>8 horas</strong></td>
+                        <td><strong>8 horas</strong></td>
+                        <td><strong>6 horas</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section id="registro" class="card">
+            <h2>Formulario de Registro</h2>
+            <form action="#" method="post" enctype="application/x-www-form-urlencoded">
+                <fieldset>
+                    <legend>Datos personales</legend>
+
+                    <label for="nombre_completo">Nombre completo:</label>
+                    <input type="text" id="nombre_completo" name="nombre_completo" placeholder="Ingrese su nombre completo" autocomplete="name" required>
+
+                    <label for="cedula">Número de cédula:</label>
+                    <input type="text" id="cedula" name="cedula" placeholder="X-XXXX-XXXX" pattern="[0-9]-[0-9]{4}-[0-9]{4}" title="Formato esperado: X-XXXX-XXXX" required>
+
+                    <label for="correo_institucional">Correo electrónico institucional:</label>
+                    <input type="email" id="correo_institucional" name="correo_institucional" placeholder="usuario@utn.ac.cr" autocomplete="email" required>
+
+                    <label for="telefono">Número de teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="XXXX-XXXX" pattern="[0-9]{4}-[0-9]{4}" title="Formato esperado: XXXX-XXXX" autocomplete="tel" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Información académica y asistencia</legend>
+
+                    <label for="tipo_participante">Tipo de participante:</label>
+                    <select id="tipo_participante" name="tipo_participante" required>
+                        <option value="" selected disabled>Seleccione una opción</option>
+                        <option value="estudiante-grado">Estudiante de grado</option>
+                        <option value="estudiante-posgrado">Estudiante de posgrado</option>
+                        <option value="docente-universitario">Docente universitario</option>
+                        <option value="profesional-externo">Profesional externo</option>
+                        <option value="investigador">Investigador</option>
+                    </select>   
+
+                    <label for="carrera_departamento">Carrera o Departamento:</label>
+                    <input type="text" id="carrera_departamento" name="carrera_departamento" list="carreras_departamentos" placeholder="Seleccione o escriba su carrera o departamento" required>
+                    <datalist id="carreras_departamentos">
+                        <option value="Ingeniería en Sistemas"></option>
+                        <option value="Ingeniería en Electrónica"></option>
+                        <option value="Administración de Empresas"></option>
+                        <option value="Contaduría Pública"></option>
+                        <option value="Ingeniería en Construcción"></option>
+                        <option value="Seguridad e Higiene Laboral"></option>
+                        <option value="Trabajo Social"></option>
+                        <option value="Educación"></option>
+                        <option value="Otra"></option>
+                    </datalist>
+
+                    <label for="talleres_interes">¿Cuáles talleres le interesan?</label>
+                    <input type="text" id="talleres_interes" name="talleres_interes" placeholder="Ej: Machine Learning, Energías Renovables">
+
+                    <label for="necesidades_accesibilidad">Necesidades especiales o requerimientos de accesibilidad:</label>
+                    <textarea id="necesidades_accesibilidad" name="necesidades_accesibilidad" rows="3" placeholder="Indique si tiene alguna necesidad especial"></textarea>
+
+                    <label for="modalidad_asistencia">Modalidad de asistencia:</label>
+                    <select id="modalidad_asistencia" name="modalidad_asistencia" required>
+                        <option value="" selected disabled>Seleccione una modalidad</option>
+                        <option value="presencial">Presencial</option>
+                        <option value="virtual">Virtual</option>
+                        <option value="hibrida">Híbrida</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Autorizaciones</legend>
+
+                    <p>
+                        <input type="checkbox" id="acepta_terminos" name="acepta_terminos" value="si" required>
+                        <label for="acepta_terminos">Acepto los términos y condiciones del congreso</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="autoriza_datos" name="autoriza_datos" value="si" required>
+                        <label for="autoriza_datos">Autorizo el uso de mis datos para fines académicos</label>
+                    </p>
+                </fieldset>
+
+                <button class="btn" type="submit">Enviar Registro</button>
+            </form>
+        </section>
+
+        <section id="ubicacion" class="card">
+            <h2>Ubicación</h2>
+            <p>UTN Sede San Carlos, Ciudad Quesada, Alajuela, Costa Rica.</p>
+            <p>Carretera Florencia - Ciudad Quesada, frente al Banco Nacional.</p>
+            <iframe
+                src="https://www.google.com/maps?q=Universidad%20T%C3%A9cnica%20Nacional%20Sede%20San%20Carlos%2C%20Costa%20Rica&amp;output=embed"
+                title="Mapa de ubicación de la UTN Sede San Carlos"
+                width="600"
+                height="400"
+                style="border:0; width:100%;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <section class="card" aria-labelledby="informacion-importante">
+            <h2 id="informacion-importante">Información Importante</h2>
+            <p>Para más información sobre el congreso, contacte a la comisión organizadora:</p>
+
+            <section aria-labelledby="contacto-principal">
+                <h3 id="contacto-principal">Contacto Principal</h3>
+                <address>
+                    <p><a href="mailto:congreso.tecnologia@utn.ac.cr">congreso.tecnologia@utn.ac.cr</a></p>
+                    <p>Teléfono: <a href="tel:+50624013000">2401-3000 ext. 5200</a></p>
+                </address>
+            </section>
+
+            <p>También puede visitar nuestra página de redes sociales:</p>
+            <p>
+                <a href="https://www.utn.ac.cr" target="_blank" rel="noopener noreferrer">
+                    Visitar sitio oficial de la UTN - www.utn.ac.cr · Sede San Carlos
+                </a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 UTN Sede San Carlos. Todos los derechos reservados.</p>
+        <p>Congreso Universitario de Tecnología y Sostenibilidad</p>
+        <p>Desarrollado por el Departamento de Tecnología de Información</p>
+    </footer>
+</body>
+</html>
