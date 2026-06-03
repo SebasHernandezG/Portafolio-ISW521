@@ -27,4 +27,142 @@ Actividad tema 6 multimedia:
 el mapa necesita allow.scipts para ejecutar js que renderiza correctamente el mapa allow same origin para que pueda acceder a las cookies y sesión de Google sin esto el mapa cargaría en blanco y sin el allow scripts no cargaría del todo 
 
 ¿Por qué el video tiene 2 etiquetas?
-source y no solo un src en el video porque no todos los navegadores
+source y no solo un src en el video porque no todos los navegadoreActividad 1 - Motor de Renderizado
+
+¿Qué construye el DOM?
+
+El DOM es la estructura que arma el navegador con el HTML. Aunque el código esté medio mal escrito, el navegador intenta acomodarlo para poder mostrar la página. O sea, va cerrando etiquetas, acomodando elementos y formando el árbol del documento como puede.
+
+¿Entra en Quirks Mode?
+
+Sí. Como el código no tiene <!DOCTYPE html>, el navegador entra en Quirks Mode. Básicamente es como un modo viejo donde algunas cosas pueden verse raro o comportarse diferente.
+
+¿Qué se ve en pantalla?
+
+Se ve el texto “Hola mundo” en negrita y luego aparece “Segunda línea”. La página se muestra, pero no significa que el código esté bien. Solo significa que el navegador lo medio arregló para que no se rompa todo.
+
+Conclusión
+
+Aunque el navegador ayuda y corrige algunas cosas, no hay que confiarse. Lo mejor es escribir bien el HTML desde el inicio y siempre poner <!DOCTYPE html>.
+
+Actividad 2 - HTML Semántico
+
+El div.header se cambia por header porque representa el encabezado de la página.
+
+Los enlaces se meten dentro de nav porque sirven para navegar entre secciones.
+
+El div.main se cambia por main porque ahí está el contenido principal.
+
+El post usa article porque es contenido que puede entenderse por sí solo.
+
+Los tags van en aside porque son información extra, no el contenido principal.
+
+El título principal se cambia a h1 porque representa el tema principal de la página.
+
+El div.footer se cambia por footer porque es el pie de página.
+
+En resumen, se cambia el montón de div por etiquetas que sí dicen qué significa cada parte.
+
+Actividad 3 - Elementos y Flujo
+
+blockquote es un elemento de bloque y semántico. Se usa para citas largas de otra fuente.
+
+span es un elemento en línea y no semántico. Sirve para aplicar estilo a una parte pequeña del texto.
+
+strong es en línea y semántico. Se usa para marcar algo importante.
+
+article es de bloque y semántico. Sirve para una noticia, post, tarjeta de producto o publicación independiente.
+
+b es en línea y presentacional. Solo pone el texto en negrita, pero no le da importancia real.
+
+time es en línea y semántico. Sirve para fechas y horas.
+
+ul es de bloque y semántico. Sirve para listas sin orden, como características o un menú.
+
+mark es en línea y semántico. Sirve para resaltar una palabra clave o resultado importante.
+
+code es en línea y semántico. Sirve para mostrar un fragmento de código.
+
+section es de bloque y semántico. Sirve para dividir una página en partes como servicios, contacto o sobre nosotros.
+
+Actividad 4 - Formularios
+
+Se usa POST porque la información del usuario no debería verse en la URL.
+
+El enctype normal es application/x-www-form-urlencoded porque no se están subiendo archivos.
+
+Cada campo debe tener un label para que sea más fácil saber qué hay que escribir y también para mejorar accesibilidad.
+
+El correo usa type="email" para que el navegador revise que tenga formato de correo.
+
+El carné usa pattern para aceptar solo formatos como IS123456.
+
+fieldset y legend ayudan a ordenar el formulario por grupos, como datos personales o datos académicos.
+
+La sede se puede seleccionar con select porque son opciones cerradas.
+
+La carrera usa datalist porque da sugerencias, pero también deja que el usuario escriba otra opción.
+
+Actividad 5 - Tablas
+
+Se usa caption para ponerle un título o descripción a la tabla.
+
+thead sirve para los encabezados.
+
+tbody sirve para los datos normales de la tabla.
+
+tfoot sirve para información final, como totales o resumen.
+
+En la fila de las 9:00, la celda “Receso” usa colspan="3", porque ocupa el espacio de tres columnas.
+
+Por eso esa fila tiene menos celdas que las demás. Si se ponen celdas de más, la tabla se descuadra y queda rara.
+
+Actividad 6 - Multimedia
+
+¿Qué atributos del sandbox necesita el iframe para que el mapa funcione?
+
+El mapa necesita allow-scripts para poder ejecutar el JavaScript que usa Google Maps. También puede necesitar allow-same-origin para que el contenido funcione como espera Google. Sin esos permisos, el mapa puede cargar mal o quedarse en blanco.
+
+¿Por qué el video tiene dos etiquetas source y no solo un src?
+
+Porque no todos los navegadores aceptan los mismos formatos. Por eso se ponen dos source, por ejemplo MP4 y WebM. Así el navegador escoge el que sí puede reproducir.
+
+¿Qué pasa si una imagen no tiene alt?
+
+Si una imagen no tiene alt, una persona que usa lector de pantalla no sabe qué muestra esa imagen. Además, si la imagen no carga, tampoco aparece una descripción útil.
+
+Actividad extra - Tema 3
+
+span es en línea, no es semántico y se usa para cambiar el color o estilo de una palabra o parte pequeña del texto.
+
+blockquote es de bloque, es semántico y se usa para citar una frase larga de un autor o una fuente.
+
+strong es en línea, es semántico y se usa para marcar texto importante, por ejemplo “entrega final tal día”.
+
+article es de bloque, es semántico HTML5 y se usa para una noticia, post, tarjeta de producto o publicación independiente.
+
+b es en línea, es presentacional y sirve para poner una palabra en negrita.
+
+time es en línea, es semántico HTML5 y sirve para fechas u horas.
+
+ul es de bloque, semántico y sirve para listas sin orden, como un menú o una lista de características.
+
+mark es en línea, semántico y sirve para resaltar una palabra clave, como cuando aparece una palabra encontrada en una búsqueda.
+
+code es en línea, semántico y sirve para mostrar código dentro de un texto.
+
+section es de bloque, semántico HTML5 y sirve para agrupar una parte de una página, como servicios, contacto o sobre nosotros.
+
+Actividad extra - Tema 6 Multimedia
+
+¿Qué atributos del sandbox del iframe necesita el mapa de Google?
+
+El mapa necesita allow-scripts para ejecutar el JavaScript que renderiza el mapa. También puede necesitar allow-same-origin para que el contenido de Google Maps funcione correctamente. Sin allow-scripts el mapa puede no cargar bien, y sin allow-same-origin puede fallar parte del contenido.
+
+¿Por qué el video tiene dos etiquetas source y no solo un src?
+
+Porque no todos los navegadores soportan los mismos formatos de video. Entonces se ponen dos opciones, por ejemplo MP4 y WebM, para que el navegador use la que sí puede reproducir.
+
+¿Qué pasa si se omite el alt en una imagen?
+
+Si se omite el alt, la imagen queda mal para accesibilidad. Una persona que usa lector de pantalla no puede saber qué representa la imagen. También si la imagen falla, no aparece una descripción de respaldo.

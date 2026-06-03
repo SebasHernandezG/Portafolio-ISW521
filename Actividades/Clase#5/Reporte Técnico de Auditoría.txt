@@ -1,0 +1,82 @@
+Reporte Técnico de Auditoría
+
+1.1 Análisis del problema Div-Soup
+
+En el código original faltan varias etiquetas semánticas importantes de HTML5. No se usan correctamente las etiquetas header, nav, main, footer, section, article y aside.
+
+En lugar de usar esas etiquetas, casi toda la estructura está hecha con div. Por ejemplo, la cabecera está hecha con un div con clase header, y el menú está hecho con un div con clase nav.
+
+Esto es un problema porque div no explica qué significa el contenido. Para una persona que lee el código, cuesta más entender qué parte es el encabezado, cuál es la navegación, cuál es el contenido principal y cuál es el pie de página.
+
+Para SEO también afecta, porque los motores de búsqueda entienden mejor una página cuando usa etiquetas semánticas. Para accesibilidad también es un problema, porque los lectores de pantalla no pueden reconocer tan bien las zonas principales de la página.
+
+El Div-Soup es cuando una página está llena de div sin una estructura semántica clara. En un proyecto profesional esto hace que el código sea más difícil de mantener, más difícil de corregir y menos accesible.
+
+1.2 Análisis del formulario
+
+El formulario no usa correctamente las etiquetas label. En lugar de conectar cada texto con su campo usando for e id, el código usa textos sueltos dentro de div.
+
+Por ejemplo, aparece un texto como Nombre completo y luego un input, pero no hay una relación directa entre ambos. Esto afecta la accesibilidad, porque un lector de pantalla puede no identificar correctamente qué campo debe llenar el usuario.
+
+También faltan grupos semánticos dentro del formulario. Se debería usar fieldset para agrupar partes del formulario y legend para indicar el nombre de cada grupo.
+
+Un grupo podría llamarse Datos personales. Otro grupo podría llamarse Preferencias del congreso.
+
+El campo Carrera o Departamento usa un select, pero sería mejor usar un datalist. El select obliga al usuario a escoger solo una opción de la lista. En cambio, datalist permite escoger una opción sugerida o escribir otra diferente.
+
+1.3 Análisis de la tabla de horarios
+
+La tabla de horarios no está bien estructurada. Le faltan caption, thead, tbody y tfoot.
+
+Estas etiquetas no son solo para presentación visual. Ayudan a organizar la tabla de forma correcta. Thead indica la parte de los encabezados, tbody contiene los datos principales y tfoot puede usarse para mostrar totales o información de cierre.
+
+También falta el atributo scope en los encabezados th. Los encabezados principales, como Hora, Lunes 15 Ago, Martes 16 Ago y Miércoles 17 Ago, deberían usar scope con valor col.
+
+La primera celda de cada fila, donde aparece la hora, debería ser un encabezado de fila y usar scope con valor row.
+
+Esto ayuda a los lectores de pantalla, porque permite relacionar cada dato con su fila y su columna.
+
+También falta el caption. Este elemento sirve para describir de qué trata la tabla. Es importante porque le dice al usuario el propósito de la tabla antes de leer sus datos.
+
+1.4 Análisis del elemento video
+
+El video tiene varios problemas. Le falta el atributo poster, que sirve para mostrar una imagen previa antes de que el usuario reproduzca el video.
+
+Esto mejora la presentación del contenido y puede ayudar a evitar saltos visuales si el espacio del video está bien definido.
+
+También falta el atributo controls. Sin este atributo, el usuario no puede controlar fácilmente la reproducción del video, como pausarlo, reproducirlo o ajustar el volumen.
+
+Además, el video solo tiene un formato de archivo. Esto puede causar problemas de compatibilidad, porque no todos los navegadores trabajan igual con los mismos formatos. Lo correcto sería incluir al menos MP4 y WebM.
+
+1.5 Análisis del iframe del mapa
+
+El iframe del mapa no tiene loading con valor lazy. Este atributo sirve para que el mapa no cargue de inmediato, sino hasta que el usuario se acerque a esa parte de la página.
+
+También falta el atributo sandbox. Este atributo ayuda a limitar lo que puede hacer el contenido externo dentro de la página.
+
+Algunas restricciones importantes son bloquear scripts si no se permiten, bloquear formularios si no se permiten y bloquear ventanas emergentes si no se permiten.
+
+También falta el atributo title. Los lectores de pantalla lo necesitan para saber qué contiene el iframe. Sin title, una persona que usa lector de pantalla puede no entender que ese contenido corresponde al mapa de ubicación.
+
+1.6 Análisis del anidamiento incorrecto
+
+Hay errores donde se mete un elemento de bloque dentro de un elemento en línea.
+
+Un caso aparece cuando se usa un span y dentro se colocan elementos como div y h3. Esto no es correcto, porque span es un elemento en línea y div o h3 son elementos de bloque.
+
+Otro caso aparece cuando se usa un enlace y dentro se coloca una estructura completa con div. Aunque HTML5 permite algunos contenidos dentro de un enlace, en este caso la estructura está mal planteada porque se pudo resolver con texto simple o con una estructura más limpia.
+
+El navegador intenta corregir estos errores automáticamente. El problema es que, al hacerlo, puede mover etiquetas, cerrar elementos antes de tiempo o cambiar el DOM real. Esto puede provocar que el diseño se vea diferente a lo esperado.
+
+Para verificarlo con DevTools se puede hacer lo siguiente.
+
+Primero, se abre el archivo en Google Chrome o Microsoft Edge. Luego se presiona F12. Después se entra a la pestaña Elements. Ahí se revisa el árbol del DOM y se compara con el código original. Si aparecen elementos como div, p o encabezados dentro de span o a, entonces hay un problema de anidamiento.
+
+Conclusión
+
+El código original funciona visualmente, pero tiene varios problemas técnicos. Usa demasiados div, no tiene buena semántica, el formulario no está bien asociado, la tabla no es accesible, el video está incompleto, el iframe no tiene mejoras de seguridad ni rendimiento y hay errores de anidamiento.
+
+La solución es refactorizar el HTML usando etiquetas semánticas, mejorar el formulario con label, fieldset y legend, corregir la tabla con caption, thead, tbody y scope, agregar atributos correctos al video y al iframe, y eliminar los anidamientos incorrectos.
+
+
+
