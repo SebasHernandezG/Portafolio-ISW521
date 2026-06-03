@@ -1,0 +1,167 @@
+RESUMEN DE ACTIVIDADES REALIZADAS HOY
+
+Hoy estuvimos viendo temas de accesibilidad web. Más que nada se trabajó cómo hacer que una página pueda ser usada no solo con mouse, sino también con teclado o con herramientas como lectores de pantalla.
+
+---
+
+ACTIVIDAD 1: CONTRASTE
+
+En esta actividad se revisó un botón que tenía fondo azul y texto blanco.
+
+El resultado del contraste fue aproximadamente 4.50:1.
+
+Con eso se respondió que el botón sí cumple con el nivel AA, porque llega al mínimo necesario para texto normal. Pero no cumple con AAA, porque ese nivel pide un contraste más alto.
+
+También se dijo que, como el texto era de 16px normal, se toma como texto normal y no como texto grande.
+
+Ejemplo básico:
+
+```css
+button {
+  background-color: #0D6EFD;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+```
+
+---
+
+ACTIVIDAD 2: MODAL Y TECLADO
+
+En esta actividad se vio un modal con botones como Confirmar y Cancelar.
+
+El problema era que, al presionar Tab, el foco podía salirse del modal y pasar a elementos que estaban detrás. Eso no está bien porque el usuario puede confundirse o perderse.
+
+La respuesta fue que el foco debe quedarse dentro del modal mientras esté abierto.
+
+Entonces, Tab y Shift + Tab deben moverse solo entre los elementos del modal hasta que se cierre.
+
+Ejemplo simple del orden correcto:
+
+```text
+Confirmar → Cancelar → Confirmar
+```
+
+Con Shift + Tab sería al revés:
+
+```text
+Cancelar → Confirmar → Cancelar
+```
+
+---
+
+ACTIVIDAD 3: PSEUDOCÓDIGO DEL MODAL
+
+Aquí se explicó una forma básica de arreglar el problema del modal.
+
+Primero se guarda el botón que abrió el modal. Luego, cuando el modal se abre, se manda el foco al primer botón o elemento interno.
+
+Después se controla la tecla Tab. Si el usuario llega al último elemento y vuelve a presionar Tab, el foco regresa al primero. Si usa Shift + Tab desde el primero, el foco pasa al último.
+
+Cuando el modal se cierra, el foco vuelve al botón que lo abrió.
+
+Ejemplo en código:
+
+```js
+let botonQueAbrioModal = null;
+
+const modal = document.querySelector("#modal");
+const abrirModal = document.querySelector("#abrirModal");
+const cerrarModal = document.querySelector("#cancelar");
+
+abrirModal.addEventListener("click", () => {
+  botonQueAbrioModal = abrirModal;
+
+  modal.classList.add("visible");
+
+  const focusables = modal.querySelectorAll(
+    "button, a, input, select, textarea, [tabindex]:not([tabindex='-1'])"
+  );
+
+  focusables[0].focus();
+});
+
+modal.addEventListener("keydown", (event) => {
+  if (event.key !== "Tab") return;
+
+  const focusables = modal.querySelectorAll(
+    "button, a, input, select, textarea, [tabindex]:not([tabindex='-1'])"
+  );
+
+  const primero = focusables[0];
+  const ultimo = focusables[focusables.length - 1];
+
+  if (event.shiftKey && document.activeElement === primero) {
+    event.preventDefault();
+    ultimo.focus();
+  } else if (!event.shiftKey && document.activeElement === ultimo) {
+    event.preventDefault();
+    primero.focus();
+  }
+});
+
+cerrarModal.addEventListener("click", () => {
+  modal.classList.remove("visible");
+  botonQueAbrioModal.focus();
+});
+```
+
+---
+
+ACTIVIDAD 4: PROBLEMAS CON ARIA
+
+En esta actividad se revisó un código con varios detalles que podían afectar la accesibilidad.
+
+Se respondió que no era lo mejor usar un div como botón, porque para eso existe la etiqueta button.
+
+Ejemplo incorrecto:
+
+```html
+<div role="button" tabindex="0">Menú</div>
+```
+
+Ejemplo correcto:
+
+```html
+<button>Menú</button>
+```
+
+También se vio que aria-expanded no debería quedarse siempre en false, porque si el menú se abre, también debe cambiar.
+
+Ejemplo:
+
+```html
+<button aria-expanded="false">
+  Menú
+</button>
+```
+
+Cuando el menú se abre, debería cambiar a:
+
+```html
+<button aria-expanded="true">
+  Menú
+</button>
+```
+
+Otro problema fue que había información repetida entre aria-label y el texto alternativo de una imagen.
+
+Ejemplo más correcto:
+
+```html
+<button aria-label="Abrir menú">
+  <img src="menu.png" alt="">
+</button>
+```
+
+También se identificó que no tenía mucho sentido usar aria-labelledby con un título que estaba oculto para lectores de pantalla.
+
+Por último, se dijo que aria-live="assertive" no era necesario para un mensaje normal de bienvenida, porque eso se usa más para avisos importantes.
+
+---
+
+CONCLUSIÓN GENERAL
+
+En resumen, hoy se respondieron actividades sobre contraste, navegación con teclado, enfoque dentro de modales y uso de ARIA.
+
+La idea principal fue que una página accesible debe ser clara, fácil de usar y no depender solo del mouse o de lo visual.
