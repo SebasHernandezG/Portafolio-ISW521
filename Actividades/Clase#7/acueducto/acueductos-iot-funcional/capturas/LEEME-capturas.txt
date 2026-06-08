@@ -1,0 +1,5 @@
+Coloque aquí las capturas solicitadas por el laboratorio:
+- escritorio-dashboard.png
+- movil-375px.png
+
+Se recomienda tomarlas desde el navegador con Live Server para que reflejen su pantalla real.

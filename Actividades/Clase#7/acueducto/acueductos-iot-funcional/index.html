@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AcueductosIoT | Dashboard de Monitoreo Hídrico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+  <!-- EJERCICIO 1: Barra de navegación superior con Flexbox -->
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="nav-logo">
+      <span>AcueductosIoT</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#main-content">Inicio</a></li>
+      <li><a href="#sensor-grid">Sensores</a></li>
+      <li><a href="#risk-evaluator">Evaluador IoT</a></li>
+      <li><a href="#alert-panel">Alertas</a></li>
+    </ul>
+
+    <button class="btn-logout" type="button" id="logout-button">
+      Cerrar Sesión
+    </button>
+  </nav>
+
+  <!-- EJERCICIO 3: Layout principal de tres columnas -->
+  <div class="dashboard-layout">
+    <aside class="sidebar" aria-label="Navegación lateral del dashboard">
+      <p class="sidebar-label">Módulos</p>
+      <nav aria-label="Menú secundario">
+        <ul class="sidebar-menu">
+          <li><a href="#main-content">Resumen</a></li>
+          <li><a href="#sensor-grid">Tanques</a></li>
+          <li><a href="#sensor-grid">Presiones</a></li>
+          <li><a href="#risk-evaluator">Riesgo hídrico</a></li>
+          <li><a href="#alert-panel">Alertas</a></li>
+        </ul>
+      </nav>
+      <p class="sidebar-status">Sistema en línea</p>
+    </aside>
+
+    <main class="main-content" id="main-content" tabindex="-1">
+      <header class="dashboard-header">
+        <div>
+          <p class="eyebrow">Dashboard hídrico</p>
+          <h1>Monitoreo IoT de Acueductos</h1>
+        </div>
+        <p class="live-status" role="status" aria-live="polite">Estado: en línea</p>
+      </header>
+
+      <!-- Mejora: estado general del sistema -->
+      <section class="system-summary" aria-label="Estado general del sistema AcueductosIoT">
+        <article class="summary-card">
+          <p class="summary-card__label">Sensores activos</p>
+          <p class="summary-card__value">6 / 6</p>
+        </article>
+
+        <article class="summary-card">
+          <p class="summary-card__label">Estado general</p>
+          <p class="summary-card__value summary-card__value--ok" id="general-status">Operativo</p>
+        </article>
+
+        <article class="summary-card">
+          <p class="summary-card__label">Última actualización</p>
+          <p class="summary-card__value" id="last-update">Hace 2 min</p>
+        </article>
+      </section>
+
+      <!-- EJERCICIO 2: Cuadrícula responsiva de sensores IoT -->
+      <section class="sensor-grid" id="sensor-grid" aria-label="Lecturas actuales de sensores IoT">
+        <article class="sensor-card sensor-card--normal">
+          <h2>Nivel de Tanque Principal</h2>
+          <p class="sensor-value" id="tank-reading">73%</p>
+          <p class="sensor-label">Sector A — Actualizado hace 2 min</p>
+        </article>
+
+        <article class="sensor-card sensor-card--warning">
+          <h2>Presión de Red</h2>
+          <p class="sensor-value" id="pressure-reading">28 PSI</p>
+          <p class="sensor-label">Calle 2 — Presión bajo observación</p>
+        </article>
+
+        <article class="sensor-card sensor-card--normal">
+          <h2>Calidad del Agua</h2>
+          <p class="sensor-value" id="chlorine-reading">0.4 mg/L</p>
+          <p class="sensor-label">Cloro residual — Dentro del rango</p>
+        </article>
+
+        <article class="sensor-card sensor-card--normal">
+          <h2>Caudal de Entrada</h2>
+          <p class="sensor-value">142 L/min</p>
+          <p class="sensor-label">Naciente Sur — Flujo activo</p>
+        </article>
+
+        <article class="sensor-card sensor-card--normal">
+          <h2>Temperatura del Agua</h2>
+          <p class="sensor-value">18.2 °C</p>
+          <p class="sensor-label">Lectura estable del sistema</p>
+        </article>
+
+        <article class="sensor-card sensor-card--normal">
+          <h2>Estado de Válvula de Emergencia</h2>
+          <p class="sensor-value">CERRADA</p>
+          <p class="sensor-label">Estado actual — Sin apertura manual</p>
+        </article>
+      </section>
+
+      <!-- Funcionalidad original: Evaluador IoT de Riesgo Hídrico -->
+      <section class="risk-evaluator" id="risk-evaluator" aria-labelledby="risk-evaluator-title">
+        <div class="section-header">
+          <p class="eyebrow">Funcionalidad extra</p>
+          <h2 id="risk-evaluator-title">Evaluador IoT de Riesgo Hídrico</h2>
+          <p>
+            Ajuste los valores simulados de sensores para calcular un estado operativo y una acción recomendada.
+          </p>
+        </div>
+
+        <form class="risk-form" id="risk-form">
+          <div class="form-field">
+            <label for="pressure-input">Presión de red en PSI</label>
+            <input id="pressure-input" name="pressure" type="number" min="0" max="80" value="28" inputmode="decimal">
+          </div>
+
+          <div class="form-field">
+            <label for="tank-input">Nivel del tanque en porcentaje</label>
+            <input id="tank-input" name="tank" type="number" min="0" max="100" value="73" inputmode="decimal">
+          </div>
+
+          <div class="form-field">
+            <label for="chlorine-input">Cloro residual en mg/L</label>
+            <input id="chlorine-input" name="chlorine" type="number" min="0" max="2" step="0.1" value="0.4" inputmode="decimal">
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-primary" type="submit">Evaluar riesgo</button>
+            <button class="btn-secondary" type="button" id="reset-button">Restablecer valores</button>
+          </div>
+        </form>
+
+        <article class="risk-result" aria-labelledby="risk-result-title">
+          <h3 id="risk-result-title">Resultado del análisis</h3>
+          <p class="risk-level" id="risk-level" aria-live="polite">Riesgo medio</p>
+          <p id="risk-message">La presión está por debajo del mínimo recomendado. Revise la red del Sector B.</p>
+          <p class="risk-detail" id="risk-detail">Criterio: presión menor a 30 PSI.</p>
+        </article>
+      </section>
+    </main>
+
+    <aside class="alert-panel" id="alert-panel" aria-label="Panel de alertas activas">
+      <header class="alert-panel__header">
+        <h2>Alertas Activas</h2>
+        <span class="alert-count" id="alert-count" aria-label="Cantidad de alertas activas">2</span>
+      </header>
+
+      <div class="alert-list" id="alert-list" aria-live="polite">
+        <article class="alert urgent">
+          <h3>Presión baja — Sector B</h3>
+          <p>28 PSI. Umbral mínimo recomendado: 30 PSI.</p>
+        </article>
+
+        <article class="alert normal">
+          <h3>Cloro en rango normal</h3>
+          <p>0.4 mg/L. Lectura estable para operación.</p>
+        </article>
+      </div>
+    </aside>
+  </div>
+
+  <!-- EJERCICIO 4: Footer usado para comprobar el comportamiento responsive -->
+  <footer class="site-footer">
+    <p>AcueductosIoT — Laboratorio Flexbox</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
