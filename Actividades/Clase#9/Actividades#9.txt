@@ -1,0 +1,108 @@
+--------- Actividad 1 ----------
+Respuestas:
+-  al sitio le hace falta el meta viewport en el head.
+- Se agrega la linea de código "<meta name="viewport" content="width=device-width, initial-scale=1.0">" dentro de la etiqueta head.
+
+
+---------- Actividad 3 ------------
+Respuestas:
+- la fuente mide 40 px
+
+
+
+------- Actividad 4 --------------
+Respuestas: 
+- cuando el ancho es de 599px o menos, cambia la galería a una columna
+- cuando el ancho de vw es de 768px o mas se muestra la barra lateral
+- se activa cuando el documento se envia a imprimir o guardar como PDF
+
+---------- Actividad 5 ------------
+Respuestas:
+
+CSS convertido a mobile-first:
+
+.productos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .productos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .productos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+Explicación:
+- Como base queda el diseño para móvil: una sola columna y gap de 16px.
+- A partir de 600px se mueve a dos columnas.
+- A partir de 1024px se mueve a cuatro columnas.
+- Esto es mobile-first porque primero se define la versión pequeña y luego se mejora para pantallas más grandes usando min-width.
+
+---------- Actividad 6 ------------
+Respuestas:
+
+1. Olor de rendimiento:
+- Se usa una imagen promo-4k.jpg desde la base.
+- Eso puede ser muy pesado, especialmente en móviles, porque el navegador podría cargar una imagen grande aunque la pantalla sea pequeña.
+
+2. Olor de mantenimiento:
+- Hay muchas media queries con anchos fijos: 1200px, 992px, 768px y 576px.
+- Si cambia el diseño, habría que modificar varias reglas manualmente.
+
+3. Olor conceptual:
+- El banner tiene width fijo de 1400px y luego se va reduciendo por cortes.
+- Esto no es mobile-first, porque primero piensa en escritorio y después intenta corregir para pantallas pequeñas.
+
+Conclusión:
+El código funciona, pero no está bien planteado para responsive moderno. Sería mejor partir desde móvil, usar width: 100%, max-width y cargar imágenes adecuadas según el tamaño de pantalla. 
+
+---------- Actividad 8 ------------
+Respuestas:
+
+CSS con tokens:
+
+:root {
+  --color-primario: #0a7d4f;
+  --color-texto-invertido: #ffffff;
+  --espaciado-md: 16px;
+  --radio-md: 8px;
+  --borde-md: 2px;
+}
+
+.boton-comprar {
+  background: var(--color-primario);
+  color: var(--color-texto-invertido);
+  padding: var(--espaciado-md);
+  border-radius: var(--radio-md);
+}
+
+.enlace-activo {
+  color: var(--color-primario);
+}
+
+.tarjeta-promo {
+  border: var(--borde-md) solid var(--color-primario);
+  padding: var(--espaciado-md);
+  border-radius: var(--radio-md);
+}
+
+Explicación:
+
+- #0a7d4f se repite varias veces, por eso se convierte en color
+primario.
+- #ffffff se guarda como color-texto-invertido porque se usa sobre fondo de color.
+- 16px se convierte en espaciado md porque representa el padding repetido.
+- 8px se convierte en radio md porque representa el redondeo de bordes.
+- 2px se convierte en borde md porque representa el grosor del borde.
+
+Conclusión:
+El código queda más fácil de mantener, porque si cambia el color, el espaciado o el redondeo, solo se modifica el valor dentro de :root y se actualiza en todos los componentes.
+
