@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark" data-zoom="normal" data-contrast="normal" data-motion="normal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Landing page de Cecilio's Barber con cortes, productos, video, ubicación y carrito." />
+  <title>Cecilio's Barber | Cortes, productos y estilo</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="container header-shell">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio de Cecilio's Barber">
+        <span class="brand-mark">CB</span>
+        <span class="brand-copy">
+          <strong>Cecilio's</strong>
+          <small>Barber</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-menu" aria-label="Navegación principal" data-menu>
+        <a href="#inicio">Inicio</a>
+        <a href="#cortes">Cortes</a>
+        <a href="#productos">Productos</a>
+        <a href="#trabajo">Video</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="access-menu" data-access-menu>
+          <button class="access-menu-trigger" type="button" aria-expanded="false" aria-controls="access-menu-panel" data-access-toggle>
+            <span aria-hidden="true">✓</span>
+            <span>Ajustes</span>
+          </button>
+
+          <div class="access-menu-panel" id="access-menu-panel" hidden data-access-panel>
+            <fieldset class="access-group">
+              <legend>Color</legend>
+              <label class="check-option">
+                <input type="checkbox" data-pref-theme-switch />
+                <span>Modo claro</span>
+              </label>
+              <p class="access-note">Sin marcar queda en modo oscuro.</p>
+            </fieldset>
+
+            <fieldset class="access-group">
+              <legend>Tamaño</legend>
+              <label class="check-option">
+                <input type="radio" name="zoom" value="normal" data-pref-zoom />
+                <span>Texto normal</span>
+              </label>
+              <label class="check-option">
+                <input type="radio" name="zoom" value="large" data-pref-zoom />
+                <span>Texto grande</span>
+              </label>
+              <label class="check-option">
+                <input type="radio" name="zoom" value="xlarge" data-pref-zoom />
+                <span>Texto muy grande</span>
+              </label>
+            </fieldset>
+
+            <fieldset class="access-group">
+              <legend>Lectura</legend>
+              <label class="check-option">
+                <input type="checkbox" data-pref-contrast />
+                <span>Alto contraste</span>
+              </label>
+              <label class="check-option">
+                <input type="checkbox" data-pref-motion />
+                <span>Reducir movimiento</span>
+              </label>
+            </fieldset>
+          </div>
+        </div>
+        <button class="cart-button" type="button" aria-label="Abrir carrito" data-cart-open>
+          <span aria-hidden="true">🛒</span>
+          <span>Carrito</span>
+          <strong data-cart-count aria-live="polite">0</strong>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <section class="hero section" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Barbería en Los Chiles</p>
+          <h1>Cortes limpios, buen acabado y productos para cuidarte en casa.</h1>
+          <p>
+            Revisá los cortes reales, elegí productos para el cabello y armá tu pedido desde el carrito.
+            WhatsApp se abre solo cuando confirmás el pedido.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#cortes">Ver cortes</a>
+            <a class="btn btn-ghost" href="#productos">Ver productos</a>
+            <a class="btn btn-ghost" href="https://www.instagram.com/zamoracecilio?igsh=MmNsdWl2Mzhmbm5x" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Cecilio's Barber">Instagram</a>
+          </div>
+        </div>
+
+        <figure class="hero-card">
+          <img src="img/corte-1.jpg" alt="Cliente junto al barbero mostrando un resultado real de corte" />
+          <figcaption>
+            <strong>Trabajo real</strong>
+            <span>Cortes hechos en el local.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="cortes">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Cortes</p>
+          <h2>Resultados reales con precio</h2>
+          <p>
+            Fotos del trabajo realizado. Los precios estimados van de ₡4,000 a ₡6,000.
+          </p>
+        </div>
+
+        <div class="cuts-grid">
+          <article class="cut-card">
+            <div class="cut-media">
+              <img src="img/corte-2.jpg" alt="Corte fade lateral con acabado limpio" />
+              <span class="cut-price">₡4,500</span>
+            </div>
+            <div class="cut-content">
+              <h3>Fade bajo texturizado</h3>
+              <p>Transición suave, laterales limpios y volumen controlado arriba.</p>
+              <div class="card-footer">
+                <strong>₡4,500</strong>
+                <button class="btn btn-small btn-primary" type="button" data-cart-add data-id="cut-fade-bajo" data-name="Fade bajo texturizado" data-price="4500">Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="cut-card">
+            <div class="cut-media">
+              <img src="img/corte-3.jpg" alt="Corte con laterales definidos y acabado natural" />
+              <span class="cut-price">₡4,000</span>
+            </div>
+            <div class="cut-content">
+              <h3>Clásico definido</h3>
+              <p>Perfil limpio, acabado natural y laterales ordenados.</p>
+              <div class="card-footer">
+                <strong>₡4,000</strong>
+                <button class="btn btn-small btn-primary" type="button" data-cart-add data-id="cut-clasico-definido" data-name="Clásico definido" data-price="4000">Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="cut-card">
+            <div class="cut-media">
+              <img src="img/corte-4.jpg" alt="Corte moderno con peinado hacia arriba" />
+              <span class="cut-price">₡5,000</span>
+            </div>
+            <div class="cut-content">
+              <h3>Volumen moderno</h3>
+              <p>Recomendado para estilos con pomada o gel fijador.</p>
+              <div class="card-footer">
+                <strong>₡5,000</strong>
+                <button class="btn btn-small btn-primary" type="button" data-cart-add data-id="cut-volumen-moderno" data-name="Volumen moderno" data-price="5000">Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="cut-card">
+            <div class="cut-media">
+              <img src="img/corte-5.jpg" alt="Corte visto desde atrás con nuca limpia" />
+              <span class="cut-price">₡4,500</span>
+            </div>
+            <div class="cut-content">
+              <h3>Nuca limpia</h3>
+              <p>Acabado trasero pulido, práctico y ordenado.</p>
+              <div class="card-footer">
+                <strong>₡4,500</strong>
+                <button class="btn btn-small btn-primary" type="button" data-cart-add data-id="cut-nuca-limpia" data-name="Nuca limpia" data-price="4500">Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="cut-card cut-card-wide">
+            <div class="cut-media">
+              <img src="img/corte-6.jpg" alt="Cliente sentado junto al barbero después del corte" />
+              <span class="cut-price">₡6,000</span>
+            </div>
+            <div class="cut-content">
+              <h3>Corte completo con asesoría</h3>
+              <p>Incluye revisión del estilo, acabado final y recomendación de producto.</p>
+              <div class="card-footer">
+                <strong>₡6,000</strong>
+                <button class="btn btn-small btn-primary" type="button" data-cart-add data-id="cut-completo-asesoria" data-name="Corte completo con asesoría" data-price="6000">Agregar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products-section" id="productos">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Productos</p>
+          <h2>Productos para el cabello</h2>
+          <p>Productos disponibles para cuidar el peinado, controlar frizz y mantener mejor el acabado.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="img/producto-curlcream.jpg" alt="Rolda Curl Cream, crema para rizos" />
+            </div>
+            <div class="product-content">
+              <p class="product-type">Rizos definidos</p>
+              <h3>Rolda Curl Cream</h3>
+              <p>Crema para rizos que ayuda a definir, controlar frizz y mantener textura natural.</p>
+              <div class="card-footer">
+                <strong>₡6,000</strong>
+                <button class="btn btn-small btn-primary" type="button" data-cart-add data-id="prod-curl-cream" data-name="Rolda Curl Cream" data-price="6000">Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card featured">
+            <div class="badge">Favorito</div>
+            <div class="product-media">
+              <img src="img/producto-curlleavein.jpg" alt="Rolda Curl Leave-In, crema hidratante para rizos" />
+            </div>
+            <div class="product-content">
+              <p class="product-type">Hidratación + definición</p>
+              <h3>Rolda Curl Leave-In</h3>
+              <p>Leave-in sin enjuague para hidratar, definir y proteger el cabello del frizz.</p>
+              <div class="card-footer">
+                <strong>₡6,500</strong>
+                <button class="btn btn-small btn-primary" type="button" data-cart-add data-id="prod-curl-leavein" data-name="Rolda Curl Leave-In" data-price="6500">Agregar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img src="img/producto-stylinggel.jpg" alt="Rolda Power Fix Styling Gel, gel fijador sin alcohol" />
+            </div>
+            <div class="product-content">
+              <p class="product-type">Fijación fuerte</p>
+              <h3>Power Fix Styling Gel</h3>
+              <p>Gel fijador sin alcohol para peinados firmes, acabados marcados y control prolongado.</p>
+              <div class="card-footer">
+                <strong>₡5,000</strong>
+                <button class="btn btn-small btn-primary" type="button" data-cart-add data-id="prod-styling-gel" data-name="Power Fix Styling Gel" data-price="5000">Agregar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-video" id="trabajo" aria-labelledby="trabajo-title" aria-describedby="trabajo-desc">
+      <video autoplay muted loop playsinline poster="img/corte-4.jpg" aria-hidden="true">
+        <source src="video/trabajo-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="work-overlay"></div>
+      <div class="container work-content">
+        <p class="eyebrow">Trabajo en acción</p>
+        <h2 id="trabajo-title">Así se trabaja en el local</h2>
+        <p id="trabajo-desc">
+          Un vistazo al proceso de corte y al ambiente de la barbería para que veás el tipo de acabado antes de llegar.
+        </p>
+        <div class="work-stats" role="group" aria-label="Datos destacados de la barbería">
+          <span><strong>5</strong> cortes con precio</span>
+          <span><strong>3</strong> productos</span>
+          <span><strong>1</strong> carrito de pedido</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section contact-section" id="contacto" aria-labelledby="contacto-title">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2 id="contacto-title">También podés escribir por Instagram.</h2>
+          <p>
+            Dejamos WhatsApp para pedidos y consultas rápidas, e Instagram como otra forma de ver trabajos recientes o enviar un mensaje directo.
+          </p>
+        </div>
+
+        <div class="contact-links" role="group" aria-label="Canales de contacto de Cecilio's Barber">
+          <a class="contact-link" href="https://wa.me/50686199888" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp de Cecilio's Barber">
+            <span aria-hidden="true">☎</span>
+            <strong>WhatsApp</strong>
+            <small>8619-9888</small>
+          </a>
+
+          <a class="contact-link contact-link-featured" href="https://www.instagram.com/zamoracecilio?igsh=MmNsdWl2Mzhmbm5x" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Cecilio's Barber">
+            <span aria-hidden="true">◎</span>
+            <strong>Instagram</strong>
+            <small>@zamoracecilio</small>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ubicacion">
+      <div class="container location-card location-layout">
+        <div class="location-info">
+          <p class="eyebrow">Ubicación</p>
+          <h2>Estamos en Los Chiles, Alajuela.</h2>
+          <p>
+            Podés visitarnos en el local o armar tu pedido desde el carrito. El mensaje por WhatsApp se envía solo cuando tocás el botón final del pedido.
+          </p>
+
+          <div class="address-chip" role="group" aria-label="Dirección del local">
+            <strong>Dirección:</strong>
+            <span>27JM+XP5 Barbería Montano, Provincia de Alajuela, Los Chiles</span>
+          </div>
+
+          <div class="location-actions">
+            <button class="btn btn-primary" type="button" data-cart-open>Ver carrito</button>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=27JM%2BXP5%20Barber%C3%ADa%20Montano%2C%20Provincia%20de%20Alajuela%2C%20Los%20Chiles" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
+            <a class="btn btn-ghost" href="https://www.instagram.com/zamoracecilio?igsh=MmNsdWl2Mzhmbm5x" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Cecilio's Barber">Instagram</a>
+          </div>
+        </div>
+
+        <div class="location-map" role="group" aria-label="Mapa de ubicación en Los Chiles, Alajuela">
+          <iframe
+            title="Mapa de Cecilio's Barber en Los Chiles, Alajuela"
+            src="https://www.google.com/maps?q=27JM%2BXP5%20Barber%C3%ADa%20Montano%2C%20Provincia%20de%20Alajuela%2C%20Los%20Chiles&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" aria-labelledby="cart-title" aria-hidden="true" data-cart-drawer>
+    <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-describedby="cart-help">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">Pedido</p>
+          <h2 id="cart-title">Carrito</h2>
+          <p id="cart-help" class="cart-help">Usá Tab para moverte dentro del carrito. Presioná Escape para cerrarlo.</p>
+        </div>
+        <button class="icon-button" type="button" aria-label="Cerrar carrito" data-cart-close>×</button>
+      </div>
+
+      <div class="cart-items" data-cart-items>
+        <p class="empty-cart">No hay cortes o productos agregados.</p>
+      </div>
+
+      <div class="cart-summary">
+        <div>
+          <span>Total</span>
+          <strong data-cart-total>₡0</strong>
+        </div>
+        <button class="btn btn-primary full" type="button" data-cart-whatsapp>Enviar pedido por WhatsApp</button>
+        <p class="cart-note">El botón Agregar solo guarda el producto o corte en el carrito.</p>
+      </div>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Cecilio's Barber · Los Chiles, Alajuela</p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/zamoracecilio?igsh=MmNsdWl2Mzhmbm5x" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Cecilio's Barber">Instagram</a>
+        <a href="#inicio">Volver arriba</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
