@@ -373,7 +373,7 @@ h3 {
   background: var(--accent);
   color: var(--accent-text);
 }
-
+  
 .btn-ghost {
   background: color-mix(in srgb, var(--surface) 75%, transparent);
   color: var(--text);
