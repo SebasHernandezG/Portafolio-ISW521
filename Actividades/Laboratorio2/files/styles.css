@@ -1,0 +1,265 @@
+/* ===========================================================
+   TOKENS
+   Paleta inspirada en cancha nocturna: verde césped oscuro,
+   líneas blancas, acento dorado (trofeo). Tipografía condensada
+   para títulos (numérico/jersey), sans limpia para el resto.
+=========================================================== */
+:root {
+  --pitch-900: #0b1f14;
+  --pitch-800: #123321;
+  --pitch-700: #1a4530;
+  --line-white: #f3f7f2;
+  --gold: #d4af37;
+  --gold-soft: #e8cf7a;
+  --red-card: #e5484d;
+  --red-card-bg: rgba(229, 72, 77, 0.12);
+  --text-dim: #9db3a6;
+
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% -10%, rgba(212, 175, 55, 0.08), transparent 40%),
+    repeating-linear-gradient(
+      90deg,
+      var(--pitch-900) 0px,
+      var(--pitch-900) 120px,
+      var(--pitch-800) 120px,
+      var(--pitch-800) 240px
+    );
+  font-family: var(--font-body);
+  color: var(--line-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.hidden { display: none !important; }
+
+/* ===========================================================
+   BANNER DE RED (CORS / servidor caído / timeout)
+   Distinto a un error de validación: cubre TODA la pantalla
+   porque no es culpa del usuario, es un fallo de comunicación.
+=========================================================== */
+.network-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--red-card);
+  color: #2a0a0b;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 16px;
+  text-align: center;
+  z-index: 50;
+}
+
+/* ===========================================================
+   CARD / SHELL
+=========================================================== */
+.app-shell { width: 100%; max-width: 440px; }
+
+.card {
+  background: rgba(11, 31, 20, 0.85);
+  border: 1px solid rgba(243, 247, 242, 0.08);
+  border-radius: 4px;
+  padding: 36px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card.wide { max-width: 560px; }
+
+.card-header { margin-bottom: 28px; }
+.card-header.row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 6px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ===========================================================
+   FORM / FIELDS
+=========================================================== */
+.field { margin-bottom: 18px; }
+
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(243, 247, 242, 0.04);
+  border: 1px solid rgba(243, 247, 242, 0.16);
+  border-radius: 3px;
+  color: var(--line-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--gold-soft);
+  background: rgba(243, 247, 242, 0.07);
+}
+
+/* Estado de error visual sobre el input, aplicado vía JS con .invalid */
+input.invalid {
+  border-color: var(--red-card);
+  background: var(--red-card-bg);
+}
+
+input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hint {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.error-message {
+  display: block;
+  min-height: 16px;
+  font-size: 12px;
+  color: var(--red-card);
+  margin-top: 4px;
+}
+
+.error-message.form-level {
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* ===========================================================
+   BUTTONS
+=========================================================== */
+.btn-primary {
+  width: 100%;
+  position: relative;
+  margin-top: 6px;
+  padding: 13px 16px;
+  background: var(--gold);
+  color: var(--pitch-900);
+  border: none;
+  border-radius: 3px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary:hover { background: var(--gold-soft); }
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(243, 247, 242, 0.2);
+  color: var(--line-white);
+  padding: 8px 14px;
+  border-radius: 3px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn-ghost:hover { border-color: var(--gold-soft); color: var(--gold-soft); }
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--gold-soft);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+}
+
+.switch-view {
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* Spinner: círculo giratorio dentro del botón */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(11, 31, 20, 0.3);
+  border-top-color: var(--pitch-900);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===========================================================
+   VISTA PROTEGIDA
+=========================================================== */
+.teams-status {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+  min-height: 18px;
+}
+
+.teams-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.teams-list li {
+  padding: 12px 14px;
+  background: rgba(243, 247, 242, 0.04);
+  border: 1px solid rgba(243, 247, 242, 0.08);
+  border-radius: 3px;
+  font-size: 14px;
+}

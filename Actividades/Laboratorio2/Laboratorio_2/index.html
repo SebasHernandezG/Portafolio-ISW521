@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Cup 26 · Auth Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="network-banner" class="network-banner hidden" role="alert" aria-live="assertive">
+    <span id="network-banner-text"></span>
+  </div>
+
+  <main class="app-shell">
+    <section id="view-register" class="card" aria-labelledby="register-title">
+      <header class="card-header">
+        <span class="eyebrow">Nuevo jugador</span>
+        <h1 id="register-title">Crear cuenta</h1>
+      </header>
+
+      <form id="form-register" novalidate>
+        <div class="field">
+          <label for="reg-name">Nombre</label>
+          <input type="text" id="reg-name" name="name" autocomplete="name"
+                 aria-describedby="reg-name-error" required />
+          <span class="error-message" id="reg-name-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="reg-email">Correo</label>
+          <input type="email" id="reg-email" name="email" autocomplete="email"
+                 aria-describedby="reg-email-error" required />
+          <span class="error-message" id="reg-email-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="reg-password">Contraseña</label>
+          <input type="password" id="reg-password" name="password" autocomplete="new-password"
+                 aria-describedby="reg-password-hint reg-password-error" required />
+          <span class="hint" id="reg-password-hint">Mínimo 6 caracteres, 1 número y 1 mayúscula.</span>
+          <span class="error-message" id="reg-password-error" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="btn-primary" id="reg-submit">
+          <span class="btn-label">Registrarme</span>
+          <span class="spinner hidden" aria-hidden="true"></span>
+        </button>
+
+        <span class="form-message" id="reg-form-message" role="status" aria-live="polite"></span>
+      </form>
+
+      <p class="switch-view">
+        ¿Ya tienes cuenta?
+        <button type="button" class="link-btn" id="go-to-login">Inicia sesión</button>
+      </p>
+    </section>
+
+    <section id="view-login" class="card hidden" aria-labelledby="login-title">
+      <header class="card-header">
+        <span class="eyebrow">Bienvenido de vuelta</span>
+        <h1 id="login-title">Iniciar sesión</h1>
+      </header>
+
+      <form id="form-login" novalidate>
+        <div class="field">
+          <label for="log-email">Correo</label>
+          <input type="email" id="log-email" name="email" autocomplete="email"
+                 aria-describedby="log-email-error" required />
+          <span class="error-message" id="log-email-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="log-password">Contraseña</label>
+          <input type="password" id="log-password" name="password" autocomplete="current-password"
+                 aria-describedby="log-password-error" required />
+          <span class="error-message" id="log-password-error" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="btn-primary" id="log-submit">
+          <span class="btn-label">Entrar</span>
+          <span class="spinner hidden" aria-hidden="true"></span>
+        </button>
+
+        <span class="form-message" id="log-form-message" role="status" aria-live="polite"></span>
+      </form>
+
+      <p class="switch-view">
+        ¿No tienes cuenta?
+        <button type="button" class="link-btn" id="go-to-register">Regístrate</button>
+      </p>
+    </section>
+
+    <section id="view-protected" class="card wide hidden" aria-labelledby="teams-title">
+      <header class="card-header row">
+        <div>
+          <span class="eyebrow">Sesión activa</span>
+          <h1 id="teams-title">Selección de equipos</h1>
+        </div>
+        <button type="button" class="btn-ghost" id="logout-btn">Cerrar sesión</button>
+      </header>
+
+      <div id="teams-status" class="teams-status" role="status" aria-live="polite"></div>
+      <ul id="teams-list" class="teams-list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
