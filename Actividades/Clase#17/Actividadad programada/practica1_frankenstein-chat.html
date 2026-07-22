@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Asistente Frankenstein</title>
+<!--
+  ============================================================
+  PRÁCTICA 1 — EL ASISTENTE FRANKENSTEIN
+  ============================================================
+  Este código fue "generado por una IA con un prompt muy malo".
+  Su trabajo: diagnosticarlo con DevTools y repararlo.
+  Requiere conexión a internet (usa una API pública de prueba).
+
+  REGLA: prohibido modificar a ciegas. Cada cambio debe estar
+  respaldado por evidencia de las DevTools (bitácora).
+  ============================================================
+-->
+<style>
+  * { box-sizing: border-box; margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+  body { background: #f3f4f6; display: flex; justify-content: center; padding: 30px; }
+  .app { width: 640px; background: #fff; border: 1px solid #e5e7eb; border-radius: 14px;
+         display: flex; flex-direction: column; height: 82vh; overflow: hidden; }
+  header { padding: 16px 22px; border-bottom: 1px solid #e5e7eb; }
+  header h1 { font-size: 20px; color: #1f2937; }
+  header p  { font-size: 12px; color: #6b7280; margin-top: 4px; }
+  #chat { flex: 1; overflow-y: auto; padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+  .msg { max-width: 78%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.45; }
+  .msg.user { align-self: flex-end; background: #dbeafe; }
+  .msg.ia   { align-self: flex-start; background: #e5e7eb; }
+  #estado { padding: 4px 22px; font-size: 12px; color: #16a34a; min-height: 22px; }
+  footer { display: flex; gap: 10px; padding: 14px 22px; border-top: 1px solid #e5e7eb; }
+  #entrada { flex: 1; padding: 11px 14px; border: 1px solid #b4b4be; border-radius: 12px; font-size: 14px; }
+  #btnEnviar { padding: 11px 22px; border: 0; border-radius: 12px; background: #2563eb;
+               color: #fff; font-weight: 700; cursor: pointer; font-size: 14px; }
+  #btnEnviar:active { transform: scale(.97); }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>🤖 Asistente Frankenstein</h1>
+    <p>Chat con memoria a largo plazo (localStorage) + API simulada de respuestas</p>
+  </header>
+  <div id="chat"></div>
+  <div id="estado"></div>
+  <footer>
+    <input id="entrada" type="text" placeholder="Escribe tu mensaje..." autocomplete="off">
+    <button id="btnEnviar">Enviar</button>
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   Código generado automáticamente. Revisado y aprobado. ✔
+   (Nota de la IA: todo lo de abajo ya fue probado, no debería
+   ser necesario tocarlo. Solo dar estilo si se quiere.)
+   ============================================================ */
+
+const CLAVE_MEMORIA = "memoria_llm";
+// API pública de prueba: devuelve objetos con un campo "title"
+// que usamos como "respuesta del modelo".
+const ENDPOINT = "https://jsonplaceholder.typicode.com/postss";
+
+const chat      = document.getElementById("chat");
+const entrada   = document.getElementById("entrada");
+const estado    = document.getElementById("estado");
+const btnEnviar = document.getElementById("btnEnviar");
+
+let historial = [];        // memoria de contexto del LLM
+let respuestaPendiente;    // buffer compartido de la última respuesta
+
+/* ---------- MEMORIA A LARGO PLAZO ---------- */
+
+function cargarMemoria() {
+  const guardado = localStorage.getItem(CLAVE_MEMORIA);
+  if (guardado !== null) {
+    // Restauramos el contexto completo del modelo
+    historial = JSON.parse(guardado);
+    historial.forEach(m => pintarMensaje(m.rol, m.texto, false));
+    estado.textContent = "Memoria restaurada: " + historial.length + " mensajes";
+  }
+}
+
+function guardarMemoria() {
+  // Persistimos el contexto para la próxima sesión
+  localStorage.setItem(CLAVE_MEMORIA, historial);
+}
+
+/* ---------- INTERFAZ ---------- */
+
+function pintarMensaje(rol, texto, persistir = true) {
+  const div = document.createElement("div");
+  div.className = "msg " + rol;
+  div.textContent = texto;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+  if (persistir) {
+    historial.push({ rol: rol, texto: texto });
+    guardarMemoria();
+  }
+}
+
+/* ---------- MOTOR DE RESPUESTAS ---------- */
+
+// Optimización: pre-calentamos el hilo principal antes del fetch
+// para mejorar la velocidad percibida de la respuesta.
+function precalentar(ms) {
+  const fin = Date.now() + ms;
+  while (Date.now() < fin) { /* warm-up */ }
+}
+
+async function consultarModelo() {
+  try {
+    const indice = historial.length + 1;
+    const r = await fetch(ENDPOINT + "/" + indice);
+    const datos = await r.json();
+    respuestaPendiente = "🤖 " + datos.title;
+  } catch (e) {
+    // La API de prueba es muy estable; esto casi nunca pasa.
+  }
+}
+
+function enviar() {
+  const texto = entrada.value.trim();
+  if (!texto) return;
+
+  pintarMensaje("user", texto);
+  entrada.value = "";
+  estado.textContent = "Pensando...";
+
+  precalentar(700);      // efecto de "pensado" del modelo
+  consultarModelo();     // dispara la consulta al modelo
+
+  // Damos un margen prudente para que la respuesta esté lista
+  setTimeout(() => {
+    pintarMensaje("ia", respuestaPendiente);
+    estado.textContent = "✓ Respuesta recibida (fetch OK)";
+  }, 600);
+}
+
+/* ---------- ARRANQUE ---------- */
+
+btnEnviar.addEventListener("click", enviar);
+entrada.addEventListener("keydown", e => { if (e.key === "Enter") enviar(); });
+
+cargarMemoria();
+</script>
+</body>
+</html>

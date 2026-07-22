@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente Frankenstein</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>🤖 Asistente Frankenstein</h1>
+      <p>Chat con memoria a largo plazo (localStorage) + API simulada de respuestas</p>
+    </header>
+
+    <section id="chat" aria-label="Historial de conversación" aria-live="polite"></section>
+    <div id="estado" role="status" aria-live="polite"></div>
+
+    <form id="formChat">
+      <label class="sr-only" for="entrada">Mensaje</label>
+      <input
+        id="entrada"
+        type="text"
+        placeholder="Escribe tu mensaje..."
+        autocomplete="off"
+        required
+      >
+      <button id="btnEnviar" type="submit">Enviar</button>
+    </form>
+  </main>
+</body>
+</html>

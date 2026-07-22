@@ -1,0 +1,141 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 30px;
+  background: #f3f4f6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: min(640px, 100%);
+  height: 82vh;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+header {
+  padding: 16px 22px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+header h1 {
+  font-size: 20px;
+}
+
+header p {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+#chat {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding: 18px 22px;
+}
+
+.msg {
+  max-width: 78%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.msg.user {
+  align-self: flex-end;
+  background: #dbeafe;
+}
+
+.msg.ia {
+  align-self: flex-start;
+  background: #e5e7eb;
+}
+
+#estado {
+  min-height: 22px;
+  padding: 4px 22px;
+  color: #166534;
+  font-size: 12px;
+}
+
+#formChat {
+  display: flex;
+  gap: 10px;
+  padding: 14px 22px;
+  border-top: 1px solid #e5e7eb;
+}
+
+#entrada {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  border: 1px solid #b4b4be;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+#btnEnviar {
+  padding: 11px 22px;
+  color: #fff;
+  background: #2563eb;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#btnEnviar:active {
+  transform: scale(.97);
+}
+
+#btnEnviar:disabled,
+#entrada:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 680px) {
+  body {
+    padding: 0;
+  }
+
+  .app {
+    height: 100vh;
+    border: 0;
+    border-radius: 0;
+  }
+}

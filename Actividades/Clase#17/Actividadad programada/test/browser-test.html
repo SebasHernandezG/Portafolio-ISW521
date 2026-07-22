@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Pruebas del chat</title></head>
+<body>
+<h1>Pruebas del Asistente Frankenstein</h1>
+<pre id="result">Ejecutando...</pre>
+<script type="module">
+import { ChatHistory } from "../js/domain/aggregates/ChatHistory.js";
+import { ChatMessage } from "../js/domain/entities/ChatMessage.js";
+import { Role } from "../js/domain/value-objects/Role.js";
+import { LocalFallbackAssistant } from "../js/infrastructure/ai/LocalFallbackAssistant.js";
+import { PollinationsAssistantGateway } from "../js/infrastructure/ai/PollinationsAssistantGateway.js";
+import { LocalStorageChatRepository } from "../js/infrastructure/storage/LocalStorageChatRepository.js";
+const lines = [];
+function check(condition, name) { if (!condition) throw new Error(name); lines.push(`✅ ${name}`); }
+try {
+  localStorage.removeItem("test_chat");
+  const repository = new LocalStorageChatRepository(localStorage, "test_chat");
+  const history = new ChatHistory();
+  history.add(ChatMessage.create(Role.USER, "hola"));
+  repository.save(history);
+  check(repository.load().all()[0].text === "hola", "Persistencia JSON");
+  localStorage.setItem("test_chat", "[object Object]");
+  check(repository.load().length === 0, "Recuperación de memoria corrupta");
+  check(/Hola/i.test(await new LocalFallbackAssistant().generateReply(history)), "Respuesta local");
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => { throw new Error("sin red"); };
+  const gateway = new PollinationsAssistantGateway({ modelEndpoint: "x", verificationEndpoint: "x", fallback: new LocalFallbackAssistant() });
+  check((await gateway.generateReply(history)).length > 0, "Respaldo ante fallo de red");
+  globalThis.fetch = originalFetch;
+  check(document.querySelectorAll("script[type=module]").length === 1, "Módulos ES cargados");
+  lines.push("\nRESULTADO: 5/5 PRUEBAS APROBADAS");
+} catch (error) {
+  lines.push(`\n❌ FALLO: ${error.message}`);
+}
+document.getElementById("result").textContent = lines.join("\n");
+localStorage.removeItem("test_chat");
+</script>
+</body>
+</html>
