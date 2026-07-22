@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   color-scheme: light;
   font-family: "Segoe UI", system-ui, sans-serif;
   background: #f3f4f6;
@@ -44,6 +44,61 @@ header p {
   font-size: 12px;
 }
 
+.api-config {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.api-config summary {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.api-config-row,
+.manual-token-row {
+  display: grid;
+  grid-template-columns: auto minmax(120px, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.api-config input,
+.manual-token-row input {
+  min-width: 0;
+  padding: 7px 9px;
+  border: 1px solid #b4b4be;
+  border-radius: 8px;
+}
+
+.api-config button,
+.manual-token-row button {
+  padding: 7px 12px;
+  color: #fff;
+  background: #2563eb;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.api-config button.secondary {
+  color: #374151;
+  background: #e5e7eb;
+}
+
+.manual-token-row {
+  display: grid;
+  grid-template-columns: auto minmax(120px, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.api-config small {
+  display: block;
+  margin-top: 6px;
+  color: #6b7280;
+}
 #chat {
   display: flex;
   flex: 1;
@@ -129,6 +184,10 @@ header p {
 }
 
 @media (max-width: 680px) {
+  .api-config-row,
+.manual-token-row {
+    grid-template-columns: 1fr;
+  }
   body {
     padding: 0;
   }
@@ -139,3 +198,7 @@ header p {
     border-radius: 0;
   }
 }
+
+
+
+

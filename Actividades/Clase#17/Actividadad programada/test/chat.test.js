@@ -37,7 +37,16 @@ test("el respaldo local siempre produce una respuesta", async () => {
   assert.match(reply, /Hola/i);
 });
 
+test("una pregunta que comienza con un saludo recibe una respuesta concreta", async () => {
+  const history = new ChatHistory([
+    ChatMessage.create(Role.USER, "Hola como programo un hello world")
+  ]);
+  const reply = await new LocalFallbackAssistant().generateReply(history);
+  assert.match(reply, /console\.log\("Hello World"\)/);
+  assert.doesNotMatch(reply, /¿En qué puedo ayudarte/);
+});
 test("rechaza roles y mensajes inválidos", () => {
   assert.throws(() => ChatMessage.create("robot", "texto"), /Rol/);
   assert.throws(() => ChatMessage.create(Role.USER, "   "), /vacío/);
 });
+

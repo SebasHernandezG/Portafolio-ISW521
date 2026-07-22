@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -11,7 +11,22 @@
   <main class="app">
     <header>
       <h1>🤖 Asistente Frankenstein</h1>
-      <p>Chat con memoria a largo plazo (localStorage) + API simulada de respuestas</p>
+      <p>Chat con IA generativa y memoria de conversación</p>
+      <details class="api-config">
+        <summary>Configurar conexión con la IA</summary>
+        <div class="api-config-row">
+          <label for="appKey">App Key de Pollinations</label>
+          <input id="appKey" type="text" placeholder="pk_..." autocomplete="off">
+          <button id="conectarPollinations" type="button">Conectar cuenta</button>
+          <button id="desconectarPollinations" class="secondary" type="button" hidden>Desconectar</button>
+        </div>
+        <div class="manual-token-row">
+          <label for="tokenTemporal">Token local (opcional)</label>
+          <input id="tokenTemporal" type="password" placeholder="sk_..." autocomplete="off">
+          <button id="usarTokenTemporal" type="button">Guardar localmente</button>
+        </div>
+        <small id="estadoConexion">Cuenta no conectada</small>
+      </details>
     </header>
 
     <section id="chat" aria-label="Historial de conversación" aria-live="polite"></section>
@@ -19,15 +34,11 @@
 
     <form id="formChat">
       <label class="sr-only" for="entrada">Mensaje</label>
-      <input
-        id="entrada"
-        type="text"
-        placeholder="Escribe tu mensaje..."
-        autocomplete="off"
-        required
-      >
+      <input id="entrada" type="text" placeholder="Pregunta lo que quieras..." autocomplete="off" required>
       <button id="btnEnviar" type="submit">Enviar</button>
     </form>
   </main>
 </body>
 </html>
+
+
