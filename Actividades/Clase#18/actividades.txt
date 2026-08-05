@@ -1,0 +1,22 @@
+Actividad 1
+-hay que tocar 2 líneas, estas serán valor y historial, si existiera un contador del headers hay que tocar una tercer linea
+-si alguien olvida actualizar una linea la interfaz mostrara un dato viejo, mientras el estado real ya cambio, ese es el problema de sincronización manual
+-este es un dolor que los frameworks declarativos resuelven
+
+actividad 2
+-ninguna, es suficiente con agregar otro estado, el historial, y mapeado en el JSX con .map()
+-la vista se actualiza sola por el react detecta el cambio de estado y vuelve a renderizar esa parte
+-esa es la diferencia central, es imperativo el programador es responsable de cada actualización visual, en declarativo es el framework
+
+actividad 3
+
+Porque solo debería tocar lo necesario para su funcionamiento en este caso el usuario 237
+
+Actividad 4
+
+Se usaría angular ya que es apto para grandes volúmenes de empleados o devs
+
+
+actividad 5
+
+se usaría vista enrutamiento y demas
